@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>檳城 & 蘭卡威 5 日遊｜山富旅遊</title>
+  <meta name="description" content="檳城＆蘭卡威5日遊行程說明，2025/12/22 出發，山富旅遊精心安排。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #0a9396;
+      --teal-dark: #005f73;
+      --teal-light: #94d2bd;
+      --sand: #e9d8a6;
+      --orange: #ee9b00;
+      --coral: #ca6702;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #212529;
+      --muted: #6c757d;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(145deg, var(--teal-dark) 0%, var(--teal) 50%, #52b69a 100%);
+      color: #fff;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 900;
+      line-height: 1.2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    .hero-sub {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+    .hero-wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+    }
+
+    /* SUMMARY CARDS */
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      padding: 2rem 1.25rem 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .summary-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.1rem 1rem;
+      text-align: center;
+    }
+    .summary-card .icon { font-size: 1.8rem; margin-bottom: 0.35rem; }
+    .summary-card .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-card .value { font-size: 0.95rem; font-weight: 700; color: var(--teal-dark); }
+
+    /* SECTION */
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2rem;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--teal-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--teal-light), transparent);
+      border-radius: 2px;
+    }
+
+    /* DAY CARDS */
+    .day-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .day-card:active { transform: scale(0.99); }
+    .day-header {
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .day-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex-shrink: 0;
+      font-size: 0.65rem;
+      line-height: 1;
+    }
+    .day-num span { font-size: 1.1rem; }
+    .day-1 .day-num { background: #caf0f8; color: #03045e; }
+    .day-2 .day-num { background: #ade8f4; color: #023e8a; }
+    .day-3 .day-num { background: #90e0ef; color: #0077b6; }
+    .day-4 .day-num { background: #48cae4; color: #03045e; }
+    .day-5 .day-num { background: #00b4d8; color: #fff; }
+    .day-title-wrap { flex: 1; }
+    .day-title { font-weight: 700; font-size: 1rem; color: var(--teal-dark); }
+    .day-subtitle { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+    .day-chevron {
+      font-size: 1.1rem;
+      color: var(--muted);
+      transition: transform 0.3s;
+    }
+    .day-card.open .day-chevron { transform: rotate(180deg); }
+    .day-body {
+      display: none;
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    .day-card.open .day-body { display: block; }
+
+    .activity-list { list-style: none; margin-top: 0.85rem; }
+    .activity-list li {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      font-size: 0.92rem;
+      border-bottom: 1px dashed #f0f0f0;
+    }
+    .activity-list li:last-child { border-bottom: none; }
+    .activity-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 0.6rem;
+      top: 0.7rem;
+    }
+    .activity-list li strong { color: var(--teal-dark); }
+
+    /* MEAL ROW */
+    .meal-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+    .meal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #f0faf9;
+      border: 1px solid var(--teal-light);
+      color: var(--teal-dark);
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* HOTEL TAG */
+    .hotel-tag {
+      margin-top: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #fdf3e7, #fde8c5);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: 0.5rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--coral);
+    }
+
+    /* NOTES */
+    .note-box {
+      background: #fff8e6;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.1rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.88rem;
+    }
+    .note-box strong { color: var(--coral); }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+    }
+    .contact-item {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 0.9rem 1rem;
+      font-size: 0.85rem;
+    }
+    .contact-item .loc { font-weight: 700; color: var(--teal-dark); font-size: 0.8rem; margin-bottom: 0.25rem; }
+    .contact-item a { color: var(--teal); text-decoration: none; font-weight: 500; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid #eee;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    /* BACK TO TOP */
+    .back-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(10,147,150,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 999;
+    }
+    .back-top.show { opacity: 1; pointer-events: auto; }
+
+    @media (max-width: 480px) {
+      .hero { padding: 2.5rem 1rem 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">✈ 山富旅遊 Richmond Tours</div>
+  <h1>檳城 & 蘭卡威<br>精華 5 日遊</h1>
+  <p class="hero-sub">2025 年 12 月 22 日 – 26 日 ｜ 行程代號 PEN05251222W</p>
+  <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path fill="#f8f9fa" d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"/>
+  </svg>
+</header>
+
+<!-- SUMMARY STRIP -->
+<div class="summary-strip">
+  <div class="summary-card">
+    <div class="icon">📅</div>
+    <div class="label">出發日期</div>
+    <div class="value">12/22 (一)</div>
+  </div>
+  <div class="summary-card">
+    <div class="icon">🗓️</div>
+    <div class="label">天數</div>
+    <div class="value">5 天 4 夜</div>
+  </div>
+  <div class="summary-card">
+    <div class="icon">📍</div>
+    <div class="label">目的地</div>
+    <div class="value">檳城・蘭卡威</div>
+  </div>
+  <div class="summary-card">
+    <div class="icon">🏨</div>
+    <div class="label">住宿</div>
+    <div class="value">5 星級飯店</div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<section>
+  <h2 class="section-title">🗺️ 每日行程</h2>
+
+  <!-- DAY 1 -->
+  <div class="day-card day-1 open" id="day1">
+    <div class="day-header" onclick="toggleDay('day1')">
+      <div class="day-num">DAY<span>1</span></div>
+      <div class="day-title-wrap">
+        <div class="day-title">台北 ✈ 檳城</div>
+        <div class="day-subtitle">12/22（一）抵達、下午茶、檳城山</div>
+      </div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <ul class="activity-list">
+        <li>抵達<strong>檳城國際機場</strong>，辦理入境手續</li>
+        <li><strong>英式下午茶</strong>｜五星級飯店優雅享用</li>
+        <li><strong>檳城山纜車</strong>｜含速通證直達山頂，俯瞰全島壯麗景色</li>
+        <li><strong>牛干冬美食夜遊</strong>｜蝦麵、咖哩麵、亞三叻沙一次品嘗</li>
+      </ul>
+      <div class="meal-row">
+        <span class="meal-tag">🍽️ 晚餐 — 夜市自理</span>
+      </div>
+      <div class="hotel-tag">🏨 Amari SPICE Penang</div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-card day-2" id="day2">
+    <div class="day-header" onclick="toggleDay('day2')">
+      <div class="day-num">DAY<span>2</span></div>
+      <div class="day-title-wrap">
+        <div class="day-title">檳城 ➜ 吉打 ➜ 蘭卡威</div>
+        <div class="day-subtitle">12/23（二）SkyCab、SkyBridge</div>
+      </div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <ul class="activity-list">
+        <li>直奔吉打港搭乘<strong>渡輪前往蘭卡威</strong></li>
+        <li><strong>蘭卡威 SkyCab 纜車</strong>｜登上馬清江山頂</li>
+        <li><strong>SkyGlide 飛索</strong>｜高空挑戰刺激體驗</li>
+        <li><strong>蘭卡威天空之橋</strong>｜全球最長弧形懸索橋，絕美高空景觀</li>
+      </ul>
+      <div class="meal-row">
+        <span class="meal-tag">🌅 早餐 — 飯店</span>
+        <span class="meal-tag">☀️ 午餐 — 泰式中餐</span>
+        <span class="meal-tag">🌙 晚餐 — 度假村 Buffet</span>
+      </div>
+      <div class="hotel-tag">🏨 The Westin Langkawi Resort & Spa</div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-card day-3" id="day3">
+    <div class="day-header" onclick="toggleDay('day3')">
+      <div class="day-num">DAY<span>3</span></div>
+      <div class="day-title-wrap">
+        <div class="day-title">蘭卡威（UNESCO 地質公園）</div>
+        <div class="day-subtitle">12/24（三）紅樹林、跳島、日落遊船</div>
+      </div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <ul class="activity-list">
+        <li><strong>Kilim 紅樹林地質公園</strong>｜乘船穿梭紅樹林、探索蝙蝠洞</li>
+        <li><strong>老鷹餵食</strong>｜欣賞馬來雄鷹展翅搶食壯觀畫面</li>
+        <li><strong>跳島遊覽</strong>｜遊覽蘭卡威周邊美麗小島</li>
+        <li><strong>日落遊船 BBQ 晚宴</strong>｜一邊看夕陽西下，一邊享受 BBQ 自助餐與調酒 🎉</li>
+      </ul>
+      <div class="meal-row">
+        <span class="meal-tag">🌅 早餐 — 飯店</span>
+        <span class="meal-tag">☀️ 午餐 — 海鮮料理</span>
+        <span class="meal-tag">🌙 晚餐 — 遊船 BBQ 自助</span>
+      </div>
+      <div class="hotel-tag">🏨 The Westin Langkawi Resort & Spa</div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-card day-4" id="day4">
+    <div class="day-header" onclick="toggleDay('day4')">
+      <div class="day-num">DAY<span>4</span></div>
+      <div class="day-title-wrap">
+        <div class="day-title">蘭卡威 ➜ 吉打 ➜ 檳城</div>
+        <div class="day-subtitle">12/25（四）娘惹文化、世界遺產巡禮</div>
+      </div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <ul class="activity-list">
+        <li>渡輪返回吉打，驅車前往<strong>檳城</strong></li>
+        <li><strong>峇峇娘惹故居（Pinang Peranakan Mansion）</strong>｜百年海峽華人博物館</li>
+        <li><strong>必比登下午茶</strong>｜正統娘惹糕點品嘗</li>
+        <li><strong>和諧街文化散策</strong>｜關帝廟、清真寺、維多利亞女皇紀念鐘樓</li>
+        <li><strong>姓周橋</strong>｜水上聚落漫步</li>
+        <li><strong>喬治市街頭彩繪藝術</strong>｜拍照打卡聖地</li>
+        <li><strong>花車（Trishaw）遊城</strong>｜復古人力三輪車穿梭老街</li>
+      </ul>
+      <div class="meal-row">
+        <span class="meal-tag">🌅 早餐 — 飯店</span>
+        <span class="meal-tag">☀️ 午餐 — 在地料理</span>
+        <span class="meal-tag">🌙 晚餐 — 娘惹料理</span>
+      </div>
+      <div class="hotel-tag">🏨 Amari SPICE Penang</div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-card day-5" id="day5">
+    <div class="day-header" onclick="toggleDay('day5')">
+      <div class="day-num">DAY<span>5</span></div>
+      <div class="day-title-wrap">
+        <div class="day-title">檳城 ✈ 台北</div>
+        <div class="day-subtitle">12/26（五）市區巡禮、返台</div>
+      </div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <ul class="activity-list">
+        <li><strong>檳城市政廳</strong>｜殖民地風格歷史建築外觀參觀</li>
+        <li><strong>維多利亞女皇紀念鐘樓</strong>｜檳城地標簡短遊覽</li>
+        <li>前往<strong>檳城國際機場</strong>搭機返台</li>
+      </ul>
+      <div class="meal-row">
+        <span class="meal-tag">🌅 早餐 — 飯店</span>
+        <span class="meal-tag">☀️ 午餐 — 肉骨茶（潮州風味）</span>
+        <span class="meal-tag">✈️ 晚餐 — 機上</span>
+      </div>
+      <div class="hotel-tag">🏠 溫暖的家</div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section>
+  <h2 class="section-title">📋 注意事項</h2>
+  <div class="note-box">
+    <strong>⚠️ 團體同進同出：</strong>本行程為團體旅遊，旅客需全程隨團。若中途自行離隊，所有已含費用之餐食、景點門票及服務，恕不退還差額。
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2 class="section-title">📞 客服聯繫</h2>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="loc">🏢 台北總公司</div>
+      <a href="tel:0244493535">(02) 4449-3535</a>
+    </div>
+    <div class="contact-item">
+      <div class="loc">📧 服務信箱</div>
+      <a href="mailto:service@richmond.com.tw">service@richmond.com.tw</a>
+    </div>
+    <div class="contact-item">
+      <div class="loc">🏙️ 台中分公司</div>
+      <a href="tel:0423224032">(04) 2322-4032</a>
+    </div>
+    <div class="contact-item">
+      <div class="loc">🌊 高雄分公司</div>
+      <a href="tel:0797433985">(07) 974-3398</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 山富旅遊 Richmond Tours｜行程代號 PEN05251222W</p>
+  <p style="margin-top:0.4rem"><a href="https://www.richmond.com.tw" target="_blank">www.richmond.com.tw</a></p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂端">▲</button>
+
+<script>
+  function toggleDay(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+
+  // Back to top button
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backTop');
+    btn.classList.toggle('show', window.scrollY > 300);
+  });
+</script>
+</body>
+</html>
